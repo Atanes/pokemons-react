@@ -1,0 +1,13 @@
+section{
+    display: flex;
+    justify-content: center;
+}
+.card-pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    width: 80px;
+}
