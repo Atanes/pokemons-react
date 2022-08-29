@@ -1,3 +1,22 @@
+<p align="center">
+   <img src='https://user-images.githubusercontent.com/18126923/187300095-47055b66-addf-4b9f-bb44-0b8e7ead0783.png'>
+   <img src='https://user-images.githubusercontent.com/18126923/187299807-9524edfb-ff10-41a1-9340-267bbaf6e31b.png'>
+   <img src='https://user-images.githubusercontent.com/18126923/187299437-442d96de-160c-4560-8aa7-f649d16fc193.png'>
+ </p>
+ 
+ 
+
+
+# pokemons-react
+
+Repositório para aplicação exemplo de acesso a uma API publica com React + Axios e seus componentes. 😎
+
+## Objetivo
+Mostrar de forma simples e direta como usar o [React js](https://pt-br.reactjs.org/docs/getting-started.html) e o [Axios](https://axios-http.com/ptbr/docs/intro) para acessar uma API publica e apresentar alguns dos elemontos dessa API em uma página WEB de forma dinamica.
+Obs.: Nesse exemplo estamos usando a [PokeApi](https://pokeapi.co/)
+</p>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
