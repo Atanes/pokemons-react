@@ -27,8 +27,8 @@ const CardPokemon: React.FC<CardPokemonProps> = (props) => {
   }, [props.nomePokemon]);
 
   return (
-    <section>
-      <div className="card-pokemon">
+    <section className="card-pokemon">
+      <div className="card-pokemon-info">
         <span>Id: {pokemon?.id}</span>
         <span>Nome: {pokemon?.nome}</span>
         <span>Habilidades: {pokemon?.habilidades.join(', ')}</span>
