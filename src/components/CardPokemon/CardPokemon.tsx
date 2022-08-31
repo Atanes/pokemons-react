@@ -16,14 +16,28 @@ export interface Pokemon {
 
 const CardPokemon: React.FC<CardPokemonProps> = (props) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
+
   useEffect(() => {
-    getPokemon(props.nomePokemon)
-      .then((dados) => {
-        const nome = dados.name.charAt(0).toLocaleUpperCase() + dados.name.slice(1);
-        const _habilidades = dados.abilities.map((habilidade: { ability: { name: string; }; })  => habilidade.ability.name);
-        setPokemon({ id: dados.id, nome: nome, imagen: dados.sprites.front_default, habilidades: _habilidades })
-      })
-      .catch((err) => "Ocorreu um erro no processamento");
+    function fetchData() {
+      getPokemon(props.nomePokemon)
+        .then((dados) => {
+          const nome =
+            dados.name.charAt(0).toLocaleUpperCase() +
+            dados.name.slice(1);
+          const _habilidades =
+            dados.abilities
+              .map((habilidade: { ability: { name: string; }; }) =>
+                habilidade.ability.name);
+          setPokemon({
+            id: dados.id,
+            nome: nome,
+            imagen: dados.sprites.front_default,
+            habilidades: _habilidades
+          })
+        })
+        .catch((err) => "Ocorreu um erro no processamento");
+    }
+    fetchData();
   }, [props.nomePokemon]);
 
   return (
@@ -36,7 +50,5 @@ const CardPokemon: React.FC<CardPokemonProps> = (props) => {
       <img src={pokemon?.imagen} alt={pokemon?.nome} />
     </section>
   )
-
 }
-
 export default CardPokemon;
