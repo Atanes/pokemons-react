@@ -1,33 +1,21 @@
 import React, { useState } from 'react';
 import './App.css';
-import CardPokemon from '../CardPokemon';
 import { useDispatch } from 'react-redux';
 import { insertNewPokemon } from '../../redux/Pokemons/Pokemons.actions';
+import { listaPokemons } from '../../utils/dadosPokemons';
 
 function App() {
-  const arrayPokemons = ['pikachu', 'ditto', 'charmander', 'squirtle', 'caterpie', 'weedle', 'rattata']
-  const [pokemons, setPokemons] = useState(listaPokemons());
+  
+  const [pokemons, setPokemons] = useState(listaPokemons(''));
   const dispatch = useDispatch();
-  function novoPokemon() {
-    const novoPokemon = dispatch(insertNewPokemon()).payload;
-    arrayPokemons.push(novoPokemon?.nome || 'Atanes');
-    setPokemons(listaPokemons());
-  }
 
-  function listaPokemons() {
-    return arrayPokemons.map((pokemon) =>
-      <CardPokemon key={pokemon} nomePokemon={pokemon} />)
+  function handleInsertNew() {
+    dispatch(insertNewPokemon('bulbasaur'));
+    setPokemons(listaPokemons(''));
   }
-
+  
   function handleChange(event: { target: { value: string; }; }) {
-    setPokemons(filtraPokemons(event.target.value));
-  }
-
-  function filtraPokemons(filtro: string) {
-    return arrayPokemons
-      .filter((pokemon) => pokemon.includes(filtro))
-      .map((pokemon) =>
-        <CardPokemon key={pokemon} nomePokemon={pokemon} />)
+    setPokemons(listaPokemons(event.target.value));
   }
 
   return (
@@ -37,7 +25,7 @@ function App() {
       <section className='listagem'>
         {pokemons}
       </section>
-      <button onClick={novoPokemon}>Novo Pokemon</button>
+      <button onClick={handleInsertNew}>Novo Pokemon</button>
     </div>
   );
 }
