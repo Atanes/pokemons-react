@@ -19,9 +19,21 @@ function App() {
       <CardPokemon key={pokemon} nomePokemon={pokemon} />)
   }
 
+  function handleChange(event: { target: { value: string; }; }) {
+    setPokemons(filtraPokemons(event.target.value));
+  }
+
+  function filtraPokemons(filtro: string) {
+    return arrayPokemons
+      .filter((pokemon) => pokemon.includes(filtro))
+      .map((pokemon) =>
+        <CardPokemon key={pokemon} nomePokemon={pokemon} />)
+  }
+
   return (
     <div className="App" >
       <h1>Listagem de Pokemons - React </h1>
+      Filtrar pelo nome: <input type="text" onChange={handleChange} />
       <section className='listagem'>
         {pokemons}
       </section>
