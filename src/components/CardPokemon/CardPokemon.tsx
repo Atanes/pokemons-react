@@ -7,7 +7,7 @@ declare interface CardPokemonProps {
   nomePokemon?: string,
 }
 
-declare interface Pokemon {
+export interface Pokemon {
   id: string | undefined,
   nome: string | undefined,
   imagen: string | undefined,
